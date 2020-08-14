@@ -68,7 +68,7 @@ class EmployeeListFragment : Fragment(), OnItemClickListener{
 
     override fun onItemClickListener(employee: Employee) {
         val action = EmployeeListFragmentDirections.actionNavigationEmployeeListToNavigationEmployeeDetails(employee)
-        NavHostFragment.findNavController(this@EmployeeListFragment).navigate(R.id.navigation_employee_details)
+        NavHostFragment.findNavController(this@EmployeeListFragment).navigate(action)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
