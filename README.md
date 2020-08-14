@@ -1,5 +1,5 @@
-# Employee Directory
-Employee directory application
+![Employee Directory](https://imgur.com/r5RNWNc.jpg)
+
 1. Fetch the employee’s JSON data from the following URL
 http://www.mocky.io/v2/5d565297300000680030a986
 2. Store the data in a database. Once the data is stored, it should always use the data from the database without calling the webservice.
@@ -15,4 +15,4 @@ http://www.mocky.io/v2/5d565297300000680030a986
 - [Room](https://developer.android.com/jetpack/androidx/releases/room)
 
 ### Download
-[Download APK](https://www.dropbox.com/s/6nbxi0xaocjfe6h/app-development-debug.apk?dl=0)
+[Download APK](https://www.dropbox.com/s/o3f9zktz100960k/app-development-debug.apk?dl=0)
