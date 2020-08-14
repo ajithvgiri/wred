@@ -4,10 +4,14 @@ import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import android.widget.SearchView
+import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ajithvgiri.wred.MainActivity
@@ -42,7 +46,6 @@ class EmployeeListFragment : Fragment(), OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         (activity as MainActivity).setSupportActionBar(toolbar)
-        (activity as MainActivity).supportActionBar?.setTitle(R.string.app_name)
 
         val linearLayoutManager = LinearLayoutManager(activity)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
@@ -53,9 +56,16 @@ class EmployeeListFragment : Fragment(), OnItemClickListener {
                 recyclerViewEmployees.apply {
                     layoutManager = linearLayoutManager
                     adapter = employeesRVAdapter
+                    employeesRVAdapter?.filter?.filter("")
                 }
             }
         })
+
+        postponeEnterTransition()
+        recyclerViewEmployees.viewTreeObserver.addOnPreDrawListener {
+            startPostponedEnterTransition()
+            true
+        }
 
         employeeListViewModel.loading.observe(viewLifecycleOwner, Observer {
             progressBar.visibility = if (it) {
@@ -66,12 +76,23 @@ class EmployeeListFragment : Fragment(), OnItemClickListener {
         })
     }
 
-    override fun onItemClickListener(employee: Employee) {
+    override fun onItemClickListener(
+        employee: Employee,
+        imageViewProfile: ImageView,
+        textViewName: TextView
+    ) {
+
+        val transitionImageView = ViewCompat.getTransitionName(imageViewProfile)
+        val transitionTextView = ViewCompat.getTransitionName(textViewName)
+        val extras = FragmentNavigatorExtras(
+            imageViewProfile to "$transitionImageView",
+            textViewName to "$transitionTextView"
+        )
         val action =
             EmployeeListFragmentDirections.actionNavigationEmployeeListToNavigationEmployeeDetails(
-                employee
+                employee, transitionImageView,transitionTextView
             )
-        NavHostFragment.findNavController(this@EmployeeListFragment).navigate(action)
+        NavHostFragment.findNavController(this@EmployeeListFragment).navigate(action, extras)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -84,7 +105,6 @@ class EmployeeListFragment : Fragment(), OnItemClickListener {
         searchView = menu.findItem(R.id.action_search).actionView as SearchView?
         searchView?.setSearchableInfo(searchManager?.getSearchableInfo(requireActivity().componentName))
         searchView?.maxWidth = Int.MAX_VALUE
-        employeesRVAdapter?.filter?.filter("")
         // listening to search query text change
         searchView?.setOnQueryTextListener(object :
             SearchView.OnQueryTextListener {

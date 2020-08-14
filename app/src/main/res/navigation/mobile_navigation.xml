@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/navigation_employee_list"
         android:name="com.ajithvgiri.wred.ui.listing.EmployeeListFragment"
-        android:label="@string/app_name"
         tools:layout="@layout/fragment_employee_list" >
         <action
             android:id="@+id/action_navigation_employee_list_to_navigation_employee_details"
@@ -18,11 +17,23 @@
     <fragment
         android:id="@+id/navigation_employee_details"
         android:name="com.ajithvgiri.wred.ui.details.EmployeeDetailsFragment"
-        tools:layout="@layout/fragment_employee_details" >
+        tools:layout="@layout/fragment_employee_details"
+        app:enterAnim="@anim/fragment_fade_enter"
+        app:exitAnim="@anim/fragment_fade_exit"
+        app:popEnterAnim="@anim/fragment_fade_enter"
+        app:popExitAnim="@anim/fragment_fade_exit">
         <argument
             android:name="employee"
             app:argType="com.ajithvgiri.wred.database.model.Employee"
             />
+        <argument
+            android:name="transitionImageView"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="transitionTextView"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
 </navigation>

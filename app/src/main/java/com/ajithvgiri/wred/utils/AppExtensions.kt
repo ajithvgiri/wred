@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 fun ImageView.loadProfile(url: String?) {
-    Glide.with(this)
+    GlideApp.with(this)
         .load(url)
         .placeholder(R.drawable.placeholder_user)
         .apply(RequestOptions.circleCropTransform())

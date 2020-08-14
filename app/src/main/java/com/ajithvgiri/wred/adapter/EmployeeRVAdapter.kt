@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.ajithvgiri.wred.R
 import com.ajithvgiri.wred.database.model.Employee
@@ -43,12 +44,17 @@ class EmployeeRVAdapter(
             itemView.textViewName.text = "${employee.name}"
             itemView.textViewCompany.text = "${employee.company?.name}"
             itemView.imageViewProfile.loadProfile(employee.profile_image)
+
+            ViewCompat.setTransitionName(itemView.imageViewProfile, "${employee.id}ImageView")
+            ViewCompat.setTransitionName(itemView.textViewName, "${employee.id}TextView")
+
             itemView.setOnClickListener {
-                onItemClickListener.onItemClickListener(employee)
+                onItemClickListener.onItemClickListener(employee,itemView.imageViewProfile,itemView.textViewName)
             }
         }
     }
 
+    // Search Filter
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(charSequence: CharSequence): FilterResults? {
