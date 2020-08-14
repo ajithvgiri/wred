@@ -17,11 +17,45 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            ext.alwaysUpdateBuildId = false
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    // Specifies one flavor dimension.
+    flavorDimensions 'default'
+    productFlavors {
+        development {
+            minSdkVersion 21
+            resConfigs ("en","xxhdpi")
+            aaptOptions.cruncherEnabled = false
+            // Assigns this product flavor to the "version" flavor dimension.
+            // If you are using only one dimension, this property is optional,
+            // and the plugin automatically assigns all the module's flavors to
+            // that dimension.
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+        production {
+            minSdkVersion 16
+            // Assigns this product flavor to the "version" flavor dimension.
+            // If you are using only one dimension, this property is optional,
+            // and the plugin automatically assigns all the module's flavors to
+            // that dimension.
+        }
+    }
+    if (project.hasProperty('devBuild')){
+        splits.abi.enable = false
+        splits.density.enable = false
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
