@@ -78,7 +78,7 @@ class EmployeeListFragment : Fragment(), OnItemClickListener{
         searchView = menu.findItem(R.id.action_search).actionView as SearchView?
         searchView?.setSearchableInfo(searchManager?.getSearchableInfo(requireActivity().componentName))
         searchView?.maxWidth = Int.MAX_VALUE
-
+        employeesRVAdapter?.filter?.filter("")
         // listening to search query text change
         searchView?.setOnQueryTextListener(object :
             SearchView.OnQueryTextListener {

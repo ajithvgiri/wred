@@ -28,11 +28,11 @@ class EmployeeRVAdapter(
     }
 
     override fun getItemCount(): Int {
-        return listOfEmployees.size
+        return filteredListOfEmployees.size
     }
 
     override fun onBindViewHolder(holder: ActivitiesViewHolder, position: Int) {
-        holder.bind(listOfEmployees[position])
+        holder.bind(filteredListOfEmployees[position])
     }
 
     class ActivitiesViewHolder(
