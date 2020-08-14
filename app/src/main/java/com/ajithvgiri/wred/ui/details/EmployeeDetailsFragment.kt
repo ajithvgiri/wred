@@ -3,6 +3,7 @@ package com.ajithvgiri.wred.ui.details
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -37,10 +38,6 @@ class EmployeeDetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Determine how shared elements are handled
-//        sharedElementEnterTransition = TransitionInflater.from(this.context).inflateTransition(R.transition.change_bounds)
-//        sharedElementReturnTransition =  TransitionInflater.from(this.context).inflateTransition(R.transition.change_bounds)
-
         employeeDetailsViewModel = ViewModelProvider(this).get(EmployeeDetailsViewModel::class.java)
         return inflater.inflate(R.layout.fragment_employee_details, container, false)
     }
@@ -66,6 +63,13 @@ class EmployeeDetailsFragment : Fragment() {
         textViewAddress.text =
             "${args.employee.address.suite}, ${args.employee.address.street} \n ${args.employee.address.city}, ${args.employee.address.zipcode}"
         textViewCompany.text =
-            "${args.employee?.company?.name}, ${args.employee?.company?.catchPhrase} \n ${args.employee?.company?.bs}"
+            "${args.employee.company?.name}, ${args.employee?.company?.catchPhrase} \n ${args.employee?.company?.bs}"
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (android.R.id.home == item.itemId){
+            activity?.onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -54,8 +54,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textSize="24sp"
         android:fontFamily="sans-serif-medium"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/imageViewProfile"
         app:layout_constraintStart_toStartOf="@+id/imageViewProfile"
         app:layout_constraintTop_toBottomOf="@+id/imageViewProfile" />
@@ -75,27 +75,27 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewUsername">
 
-        <TextView
-            android:id="@+id/textViewEmailLabel"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Email : "
-            android:textSize="20sp" />
+            android:layout_marginEnd="8dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_email" />
 
         <TextView
             android:id="@+id/textViewEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp" />
-
+            android:textAllCaps="false"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -106,26 +106,28 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutEmail">
 
-        <TextView
-            android:id="@+id/textViewPhoneLabel"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Phone : "
-            android:textSize="20sp" />
+            android:layout_marginEnd="8dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_phone" />
 
         <TextView
             android:id="@+id/textViewPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp" />
+            android:drawablePadding="10dp"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
     </LinearLayout>
 
 
@@ -135,26 +137,29 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutPhone">
 
-        <TextView
-            android:id="@+id/textViewWebSiteLabel"
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Website : "
-            android:textSize="20sp" />
+            android:layout_marginEnd="8dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_website" />
 
         <TextView
             android:id="@+id/textViewWebSite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp" />
+            android:drawablePadding="10dp"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
     </LinearLayout>
 
 
@@ -170,20 +175,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutWebsite">
 
-
-        <TextView
-            android:id="@+id/textViewAddressLabel"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Address : "
-            android:textSize="20sp" />
+            android:layout_gravity="start"
+            android:layout_marginEnd="8dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_address" />
 
         <TextView
             android:id="@+id/textViewAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp" />
+            android:drawablePadding="10dp"
+            android:minLines="3"
+            android:textSize="16sp" />
     </LinearLayout>
 
 
@@ -199,19 +205,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutAddress">
 
-        <TextView
-            android:id="@+id/textViewCompanyLabel"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Company :"
-            android:textSize="20sp" />
+            android:layout_gravity="start"
+            android:layout_marginEnd="8dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_company" />
 
         <TextView
             android:id="@+id/textViewCompany"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp" />
+            android:drawablePadding="10dp"
+            android:minLines="3"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
