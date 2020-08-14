@@ -144,7 +144,6 @@
             android:id="@+id/textViewAddressLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="Address : "
             android:textSize="20sp" />
 
@@ -173,7 +172,6 @@
             android:id="@+id/textViewCompanyLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="Company :"
             android:textSize="20sp" />
 
