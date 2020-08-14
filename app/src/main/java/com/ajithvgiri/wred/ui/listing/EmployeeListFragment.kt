@@ -8,6 +8,7 @@ import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ajithvgiri.wred.MainActivity
 import com.ajithvgiri.wred.R
@@ -66,7 +67,8 @@ class EmployeeListFragment : Fragment(), OnItemClickListener{
     }
 
     override fun onItemClickListener(employee: Employee) {
-//        val actions = EmployeeListFragmentD
+//        val action = EmployeeListFragmentDirection
+        NavHostFragment.findNavController(this@EmployeeListFragment).navigate(R.id.navigation_employee_details)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -18,6 +18,11 @@
     <fragment
         android:id="@+id/navigation_employee_details"
         android:name="com.ajithvgiri.wred.ui.details.EmployeeDetailsFragment"
-        tools:layout="@layout/fragment_employee_details" />
+        tools:layout="@layout/fragment_employee_details" >
+        <argument
+            android:name="employee"
+            app:argType="com.ajithvgiri.wred.database.model.Employee"
+            app:nullable="true" />
+    </fragment>
 
 </navigation>
