@@ -28,6 +28,7 @@ class EmployeeListViewModel(application: Application) : AndroidViewModel(applica
 
     init {
         getEmployeeDataFromServer()
+        getEmployeeList()
     }
 
     // getting employee detail from server
