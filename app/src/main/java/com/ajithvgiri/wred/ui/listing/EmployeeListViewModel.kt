@@ -22,15 +22,15 @@ class EmployeeListViewModel(application: Application) : AndroidViewModel(applica
     val employeeList: LiveData<List<Employee>> = _employeeList
 
     // Retrofit
-    val api: ApiInterface = RetrofitService(application).createService(ApiInterface::class.java)
+    private val api: ApiInterface = RetrofitService(application).createService(ApiInterface::class.java)
     // Repository
-    val repository:EmployeeRepository = EmployeeRepository(application)
+    private val repository:EmployeeRepository = EmployeeRepository(application)
 
     init {
         getEmployeeDataFromServer()
-        getEmployeeList()
     }
 
+    // getting employee detail from server
     private fun getEmployeeDataFromServer(){
         val callBack = object : Callback<List<Employee>> {
 
@@ -52,15 +52,18 @@ class EmployeeListViewModel(application: Application) : AndroidViewModel(applica
         api.getEmployeeData().enqueue(callBack)
     }
 
+    // save to room database
     fun insertEmployeeData(listOfEmployees: List<Employee>) {
         viewModelScope.launch {
             repository.insert(listOfEmployees)
         }.invokeOnCompletion {
             _loading.value = false
+            getEmployeeList()
         }
     }
 
-    fun getEmployeeList(){
+    // get employee list from local database
+    private fun getEmployeeList(){
         _loading.value = true
         viewModelScope.launch {
             _employeeList.value = repository.getEmployeeList()
