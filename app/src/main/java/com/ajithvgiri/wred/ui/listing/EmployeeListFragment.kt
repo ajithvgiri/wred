@@ -67,7 +67,7 @@ class EmployeeListFragment : Fragment(), OnItemClickListener{
     }
 
     override fun onItemClickListener(employee: Employee) {
-//        val action = EmployeeListFragmentDirection
+        val action = EmployeeListFragmentDirections.actionNavigationEmployeeListToNavigationEmployeeDetails(employee)
         NavHostFragment.findNavController(this@EmployeeListFragment).navigate(R.id.navigation_employee_details)
     }
 
