@@ -50,11 +50,13 @@
 
     <TextView
         android:id="@+id/textViewEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="16dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewEmailLabel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewEmailLabel"
         app:layout_constraintTop_toTopOf="@+id/textViewEmailLabel" />
 
@@ -71,11 +73,13 @@
 
     <TextView
         android:id="@+id/textViewPhone"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="16dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPhoneLabel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewPhoneLabel"
         app:layout_constraintTop_toTopOf="@+id/textViewPhoneLabel" />
 
@@ -92,11 +96,13 @@
 
     <TextView
         android:id="@+id/textViewWebSite"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="16dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewWebSiteLabel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewWebSiteLabel"
         app:layout_constraintTop_toTopOf="@+id/textViewWebSiteLabel" />
 
@@ -113,11 +119,13 @@
 
     <TextView
         android:id="@+id/textViewAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="16dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewAddressLabel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewAddressLabel"
         app:layout_constraintTop_toTopOf="@+id/textViewAddressLabel" />
 
@@ -134,11 +142,13 @@
 
     <TextView
         android:id="@+id/textViewCompany"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="16dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewCompanyLabel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewCompanyLabel"
         app:layout_constraintTop_toTopOf="@+id/textViewCompanyLabel" />
 

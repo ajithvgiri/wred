@@ -22,8 +22,7 @@
         <argument
             android:name="employee"
             app:argType="com.ajithvgiri.wred.database.model.Employee"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            />
     </fragment>
 
 </navigation>
