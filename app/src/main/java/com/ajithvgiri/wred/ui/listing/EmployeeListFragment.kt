@@ -18,16 +18,17 @@ import com.ajithvgiri.wred.database.model.Employee
 import kotlinx.android.synthetic.main.fragment_employee_list.*
 
 
-class EmployeeListFragment : Fragment(), OnItemClickListener{
+class EmployeeListFragment : Fragment(), OnItemClickListener {
 
     private lateinit var employeeListViewModel: EmployeeListViewModel
     private var searchView: SearchView? = null
-    private var employeesRVAdapter:EmployeeRVAdapter?=null
+    private var employeesRVAdapter: EmployeeRVAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,7 +42,6 @@ class EmployeeListFragment : Fragment(), OnItemClickListener{
         super.onViewCreated(view, savedInstanceState)
 
         (activity as MainActivity).setSupportActionBar(toolbar)
-        (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as MainActivity).supportActionBar?.setTitle(R.string.app_name)
 
         val linearLayoutManager = LinearLayoutManager(activity)
@@ -67,7 +67,10 @@ class EmployeeListFragment : Fragment(), OnItemClickListener{
     }
 
     override fun onItemClickListener(employee: Employee) {
-        val action = EmployeeListFragmentDirections.actionNavigationEmployeeListToNavigationEmployeeDetails(employee)
+        val action =
+            EmployeeListFragmentDirections.actionNavigationEmployeeListToNavigationEmployeeDetails(
+                employee
+            )
         NavHostFragment.findNavController(this@EmployeeListFragment).navigate(action)
     }
 
@@ -76,7 +79,8 @@ class EmployeeListFragment : Fragment(), OnItemClickListener{
         inflater.inflate(R.menu.menu_main, menu)
 
         // Associate searchable configuration with the SearchView
-        val searchManager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager?
+        val searchManager =
+            requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager?
         searchView = menu.findItem(R.id.action_search).actionView as SearchView?
         searchView?.setSearchableInfo(searchManager?.getSearchableInfo(requireActivity().componentName))
         searchView?.maxWidth = Int.MAX_VALUE
