@@ -8,6 +8,7 @@ import com.ajithvgiri.wred.database.typeconverter.CompanyTypeConverter
 import com.ajithvgiri.wred.database.typeconverter.GeoTypeConverter
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 @Entity(tableName = "employees")
@@ -41,7 +42,7 @@ data class Employee(
     @Json(name = "company")
     @TypeConverters(CompanyTypeConverter::class)
     var company: Company = Company()
-)
+):Serializable
 
 @JsonClass(generateAdapter = true)
 data class Address(
@@ -55,10 +56,10 @@ data class Address(
 
     @TypeConverters(GeoTypeConverter::class)
     var geo: Geo = Geo()
-)
+):Serializable
 
 @JsonClass(generateAdapter = true)
-data class Geo(var lat: String = "", var lng: String = "")
+data class Geo(var lat: String = "", var lng: String = ""):Serializable
 
 @JsonClass(generateAdapter = true)
-data class Company(var name: String = "", var catchPhrase: String = "", var bs: String = "")
+data class Company(var name: String = "", var catchPhrase: String = "", var bs: String = ""):Serializable

@@ -13,7 +13,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        buildConfigField "String", "BASE_URL", "\"http://www.mocky.io/v2/\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
