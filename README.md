@@ -15,4 +15,4 @@ http://www.mocky.io/v2/5d565297300000680030a986
 - [Room](https://developer.android.com/jetpack/androidx/releases/room)
 
 ### Download
-[Download APK](https://www.dropbox.com/s/o3f9zktz100960k/app-development-debug.apk?dl=0)
+[Download APK](https://drive.google.com/file/d/1-JGPQtPOjndZFYcg2bAMFc96Zth53gxT/view?usp=sharing)
