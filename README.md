@@ -1,6 +1,6 @@
 ![Employee Directory](https://imgur.com/r5RNWNc.jpg)
 
-1. Fetch the employee’s JSON data from the following URL
+1. Fetch employee’s JSON data from the following URL
 http://www.mocky.io/v2/5d565297300000680030a986
 2. Store the data in a database. Once the data is stored, it should always use the data from the database without calling the webservice.
 3. Fetch the list of employee’s from the database and display in a list (Profile Image, Name, Company Name)
